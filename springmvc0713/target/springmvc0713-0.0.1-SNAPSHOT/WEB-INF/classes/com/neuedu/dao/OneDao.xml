@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.OneDao">
+	<select id="getOnesvideo" resultType="One">
+		select cishu,type,id from one where type='video'and id!='null' order by cishu desc
+	</select>
+	<select id="getOnesarticle" resultType="One">
+		select cishu,type,id from one where type='article' and id!='null' order by cishu desc
+	</select>
+	<select id="getTest" resultType="One">
+		select * from one where num = #{num,jdbcType=INTEGER}
+	</select>
+	<insert id="saveTest" parameterType="com.neuedu.pojo.One">
+		insert into one  values(null,#{type},#{id},#{cishu})
+	</insert>
+</mapper>
